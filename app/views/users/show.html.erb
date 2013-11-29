@@ -1,0 +1,17 @@
+<% content_for :title do %>
+	My Profile
+<% end %>
+<p>Username: <%=h @user.email %></p>
+<p><%= link_to "Find Friends", users_path %></p>
+<h2>Your Friends</h2>
+<ul>
+  <% @user.friends.each do |user| %>
+  <li><%=  user.email %></li>
+  <% end %>  
+</ul>
+</br>
+</br>
+<p><%= link_to "Posts",  posts_path%></p>
+</br>
+</br>
+<p><%= link_to "Messages",  messages_path%></p>

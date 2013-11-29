@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  sex: 
+  merital_status: 
+  date_of_birth: 
+  residence: 
+  phone_number: 
+
+two:
+  name: 
+  sex: 
+  merital_status: 
+  date_of_birth: 
+  residence: 
+  phone_number: 

@@ -1,0 +1,16 @@
+<h2></h2>
+<%= link_to "My Profile", user_path(current_user) %>
+<h2>Other Users</h2>
+
+<% for user in @users %>
+  <div class="user">
+    <p>
+      <strong><%=h user.email%></strong>
+      <% unless (current_user.friends.where(:id => user.id).any? || current_user == user) %> 
+    			<%= link_to "Add Friend", add_friend_user_path(user), :method => :post %>
+    			 <div class="clear"></div>
+     	<% end %>
+      
+    </p>
+  </div>
+<% end %>

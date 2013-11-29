@@ -1,0 +1,17 @@
+<% content_for :title do %>
+	Messages
+<% end %>
+</br>
+</br>
+<h2>Your Messages</h2>
+<ul>
+  <% @messages.each do |message| %>
+  <li><% recieve_id = message.recieved_by %>
+  		<h4><%= User.find(recieve_id).email %></h4>
+			<%=  message.body %>
+  </li>
+  </br>
+  <% end %>  
+</ul>
+
+<%= link_to 'send message', message_path%>
