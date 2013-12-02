@@ -5,22 +5,17 @@ Facebook::Application.routes.draw do
     resources :comments
   end
   resources :comments
-  resources :messages do
-      member do
-        
-        post :send_message      
-      end
-
-  # The priority is based upon order of creation: first created -> highest priority.
+  resources :messages 
+    
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root to: 'users#index' 
   resources :users do
-      member do
-        
-        post :add_friend      
-      end
+    member do
+      post :add_friend      
+    end
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

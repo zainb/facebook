@@ -1,2 +1,6 @@
 <h2>Post</h2>
-<%=@post_for_comment.body %>
+<%=@post.body %>
+<h2>Comments</h2>
+<%=render @post.comments %>
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>

@@ -4,14 +4,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @my_posts = Post.where(user_id: current_user)
     @posts = Post.where(user_id: current_user.friends)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-  	@post_for_comment = Post.find(params[:id])
-  	@post = Post.find(user_id: current_user.friends)
+    
+  	@post = Post.find(params[:id])
+  	#@post = Post.find(user_id: current_user.friends)
     #comment = @post.comments.build
   end
 

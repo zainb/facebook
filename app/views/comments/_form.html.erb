@@ -1,8 +1,4 @@
-<%= form_for(@message) do |f| %>
-  <div class="field">
-    <%= f.label :send_to %><br />
-    <%= f.text_area :send_to %>
-  </div>
+<%= form_for([@post, @post.comments.build]) do |f| %>
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>

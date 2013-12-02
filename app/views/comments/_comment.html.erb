@@ -1,10 +1,10 @@
 <p>
-  <b>Comment:</b>
-  <%= comment.user %>
+<li>
+  <%= comment.user.email %>
   <%= comment.body %>
-</p>
-<p>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
+</li>
+
+<%= link_to 'Destroy Comment', [comment.post, comment],
                :confirm => 'Are you sure?',
-               :method => :delete %>
+               :method => :delete %>  
 </p>

@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Body</th>
+      <th>Friend's posts</th>
       <th></th>
-      </tr>
+    </tr>
   </thead>
 
   <tbody>
@@ -13,16 +13,36 @@
       <tr>
         <td><%= post.user.email %></td>
         <td><%= post.body %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'show post', post_path(post)%></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>Your posts</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_posts.each do |post| %>
+      <tr>
+        <td><%= post.body %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'Add Comments', post_comments_url(post)%></td>
+        <td><%= link_to 'show post', post_path(post)%></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 

@@ -1,3 +1,4 @@
+
 <% content_for :title do %>
 	Messages
 <% end %>
@@ -5,13 +6,15 @@
 </br>
 <h2>Your Messages</h2>
 <ul>
-  <% @messages.each do |message| %>
-  <li><% recieve_id = message.recieved_by %>
-  		<h4><%= User.find(recieve_id).email %></h4>
-			<%=  message.body %>
-  </li>
-  </br>
+  <% current_user.messages.each do |message| %>
+  	<%if message.to_from == false%>
+  		<li><% sender = message.to_from %>
+  			<h4><%= User.find(sender).email %></h4>
+				<%=  message.body %>
+  		</li>
+  	<% end %>
+  	</br>
   <% end %>  
 </ul>
+<%= link_to 'send message', new_message_path %>
 
-<%= link_to 'send message', message_path%>
