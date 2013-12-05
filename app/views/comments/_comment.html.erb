@@ -3,8 +3,10 @@
   <%= comment.user.email %>
   <%= comment.body %>
 </li>
-
-<%= link_to 'Destroy Comment', [comment.post, comment],
+<% if comment.user == current_user %>
+	<%= link_to 'Destroy Comment', [comment.post, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>  
+
+<%end%>
 </p>

@@ -1,6 +1,4 @@
 class Message < ActiveRecord::Base
+	validates :body, presence: true
 	belongs_to :user
-
-  scope :sent, where(:sent => true)
-  scope :received, where(:sent => false)
 end
