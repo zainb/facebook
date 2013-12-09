@@ -1,34 +1,39 @@
 class CommentsController < ApplicationController
 	def create
-    @post = Post.find params[:post_id]
+    @post = Post.find(params[:post_id])
+    # Not implemented: check to see whether the user has permission to create a comment on this object
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
-    #@comment.save
+    #if @comment.save
+     # render :partial => "comments/comment", locals: { comment: @comment }, layout: false, status: :created
+    #else
+     # render :js => "alert('error saving comment');"
+    #end
     respond_to do |format|
-      if @comment.save
         format.html { redirect_to post_path(@post) }
-        format.json { render action: 'show', status: :created, location: @post }
-      else
-        format.html { redirect_to post_path(@post), notice: 'comment not saved, comment was empty...' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+        format.js 
+    end    
   end
   
   def index
   end
   
   def destroy
+    #@comment = Comment.find(params[:id])
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    @comment.destroy
-    redirect_to post_path(@post)
+      if @comment.destroy
+        #redirect_to post_path(@post)
+        render :json => @comment, :status => :ok
+      else
+        render :js => "alert('error deleting comment');"
+      end
   end
 
 private
   
   def comment_params
-      params.require(:comment).permit(:post_id, :user_id, :body)
+      params.require(:comment).permit(:commentable_id, :commentable_type, :user_id, :comment)
   end
 
 end

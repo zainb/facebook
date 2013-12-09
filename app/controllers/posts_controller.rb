@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-  	@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    @comments = @post.comments.order('created_at desc')
   end
 
   # GET /posts/new
@@ -21,6 +22,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+  end
+
+  def add_comment
+    
   end
 
   # POST /posts

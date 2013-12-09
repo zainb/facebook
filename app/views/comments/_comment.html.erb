@@ -1,12 +1,12 @@
-<p>
+<p class="comment">
 <li>
   <%= comment.user.email %>
-  <%= comment.body %>
+  <%= comment.comment %>
 </li>
 <% if comment.user == current_user %>
-	<%= link_to 'Destroy Comment', [comment.post, comment],
-               :confirm => 'Are you sure?',
-               :method => :delete %>  
-
+	<%= link_to 'Destroy', [comment.commentable, comment],
+              :remote => true,
+              :confirm => 'Are you sure?',
+              :method => :delete %>  
 <%end%>
 </p>

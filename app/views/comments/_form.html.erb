@@ -1,7 +1,11 @@
-<%= form_for([@post, @post.comments.build]) do |f| %>
+<%= form_for([@post, @post.comments.build], remote: true) do |f| %>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </div>
+  <div class="field">
+    <input name="commentable_id" type="hidden" value="comment.commentable_id">
+    <input name="commentable_type" type="hidden" value="comment.commentable_type">
   </div>
   <div class="actions">
     <%= f.submit %>
