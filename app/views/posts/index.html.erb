@@ -1,6 +1,5 @@
 <h1>Listing posts</h1>
-
-<table>
+<table class = 'table table-striped'>
   <thead>
     <tr>
       <th>Friend's posts</th>
@@ -17,13 +16,13 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><%= link_to 'show post', post_path(post)%></td>
+        <td><%= link_to 'show post', post_path(post), :class => 'btn btn-mini'%></td>
       </tr>
     <% end %>
-
   </tbody>
 </table>
-<table>
+
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>Your posts</th>
@@ -34,12 +33,12 @@
     <% @my_posts.each do |post| %>
       <tr>
         <td><%= post.body %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?', :class => 'btn btn-mini' } %></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td><%= link_to 'show post', post_path(post)%></td>
+        <td><%= link_to 'show post', post_path(post), :class => 'btn btn-mini'%></td>
       </tr>
     <% end %>
 
@@ -48,4 +47,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path%>
+<%= link_to 'New Post', new_post_path, :class => 'btn btn-primary'%>

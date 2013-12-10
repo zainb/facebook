@@ -1,10 +1,10 @@
 <p class="comment">
 <li>
   <%= comment.user.email %>
-  <%= comment.comment %>
+  <%= comment.body %>
 </li>
 <% if comment.user == current_user %>
-	<%= link_to 'Destroy', [comment.commentable, comment],
+	<%= link_to 'Destroy', post_comment_path(@post, comment, :format => :js),
               :remote => true,
               :confirm => 'Are you sure?',
               :method => :delete %>  

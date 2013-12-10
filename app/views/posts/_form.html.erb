@@ -1,5 +1,5 @@
-<%= form_for(@post) do |post_form| %>
-  
+<%= form_for @post, :html => { :class => 'form-horizontal'} do |post_form| %>
+  <fieldset>
   <% if @post.errors.any? %>
     <div id="errorExplanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,13 +11,15 @@
     </div>
   <% end %>
  
-  <div class="field">
-    <%= post_form.label :body %><br />
-    <%= post_form.text_field :body %>
+  <div class="control-group" >
+    <%= post_form.label :body, :class=> "control-label"%><br />
+    <div class = "contols">
+      <%= post_form.text_field :body, :class => "text_field" %>
+    </div>
   </div>
   
-  <div class="actions">
-    <%= post_form.submit %>
+  <div class="form-actions">
+    <%= post_form.submit nil, :class => 'btn btn-primary' %>
   </div>
-
+  </fieldset>
 <% end %>
