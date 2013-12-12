@@ -1,50 +1,8 @@
 <h1>Listing posts</h1>
-<table class = 'table table-striped'>
-  <thead>
-    <tr>
-      <th>Friend's posts</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user.email %></td>
-        <td><%= post.body %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'show post', post_path(post), :class => 'btn btn-mini'%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table class='table table-striped'>
-  <thead>
-    <tr>
-      <th>Your posts</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @my_posts.each do |post| %>
-      <tr>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?', :class => 'btn btn-mini' } %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'show post', post_path(post), :class => 'btn btn-mini'%></td>
-      </tr>
-    <% end %>
-
-  </tbody>
-</table>
-
+<%= render partial: 'friends_posts'%>
+<div id="my_posts">
+  <%= render partial: 'my_posts'%> 
+</div>
 <br>
-
-<%= link_to 'New Post', new_post_path, :class => 'btn btn-primary'%>
+<h1>New Post</h1>
+<%= render partial: 'form'%>

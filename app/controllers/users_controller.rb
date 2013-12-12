@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!
-
+	
 	def show
-		@user = User.find(params[:id])
-	end
-
-	def list_to_add_friends
-		@users = User.all
 		@user = User.find(params[:id])
 	end
 	

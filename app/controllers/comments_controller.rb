@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
 	def create
     @post = Post.find(params[:post_id])
-    # Not implemented: check to see whether the user has permission to create a comment on this object
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
     @comment.save
@@ -15,9 +14,6 @@ class CommentsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end    
-  end
-  
-  def index
   end
   
   def destroy

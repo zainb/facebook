@@ -1,0 +1,22 @@
+<table class = 'table table-striped'>
+  <thead>
+    <tr>
+      <th>Friend's posts</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends_posts.each do |post| %>
+      <tr>
+        <td><%= post.user.email %></td>
+        <td><%= post.body %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'show post', post_path(post), :class => 'btn btn-mini'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

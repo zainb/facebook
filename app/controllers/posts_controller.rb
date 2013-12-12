@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy]
-
   # GET /posts
   # GET /posts.json
   def index
     @my_posts = Post.where(user_id: current_user)
-    @posts = Post.where(user_id: current_user.friends)
+    @friends_posts = Post.where(user_id: current_user.friends)
+    @post = Post.new
   end
 
   # GET /posts/1
@@ -15,26 +15,15 @@ class PostsController < ApplicationController
     @comments = @post.comments.order('created_at desc')
   end
 
-  # GET /posts/new
-  def new
-    @post = Post.new
-  end
-
-  # GET /posts/1/edit
-  def edit
-  end
-
-  def add_comment
-    
-  end
-
   # POST /posts
   # POST /posts.json
   def create
     @post = current_user.posts.create(post_params)
+    @my_posts = Post.where(user_id: current_user)
     respond_to do |format|
       if @post.save
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+        format.js
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -47,6 +36,7 @@ class PostsController < ApplicationController
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url }
+      format.js
       format.json { head :no_content }
     end
   end

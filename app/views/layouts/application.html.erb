@@ -3,15 +3,17 @@
 <head>
   <title><%= yield :title %></title>
   <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application"%>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
+      <%= link_to "facebook", '#', id: "logo", class: 'navbar-brand' %>
       <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-      <%= link_to "My Profile", user_path(current_user), class: 'navbar-brand' %>
-
+      <% if current_user.present? %>
+        <%= link_to "My Profile", user_path(current_user), class: 'navbar-brand' %>
+      <%end%>
       <p class="navbar-text pull-right">
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
@@ -24,6 +26,7 @@
       </p>
     </div>
   </nav>
+  <%= image_tag "facebook.jpeg", alt: "Facebook", class: "image" %>
   <% if notice %>
     <p class="alert alert-notice"><%= notice %></p>
   <% end %>
@@ -33,7 +36,7 @@
   <div class="container">
     <div class="row">
       <div class="span"><%= yield %></div>
-      <div class="span">
+      <div class="span center">
         <h2>About Us</h2>
         <p>Facebook is a social website to connect people.</p>        
       </div>

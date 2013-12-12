@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 	def index
 		@user = User.find(current_user)
 		Message.find_each do |message|
-      @messages = message
+    @messages = message
     end
 	end
 	
