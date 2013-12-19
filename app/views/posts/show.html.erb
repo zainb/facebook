@@ -2,8 +2,7 @@
 <%=@post.body %>
 <h2>Comments</h2>
 <div id='com'>
-  <%=render :partial => 'comments/comment', :collection => @comments, :as => :comment
-  %>
+  <%=render @post.comments%>
 </div>
 <h2>Add a comment:</h2>
 <%= render :partial => 'comments/form' %>

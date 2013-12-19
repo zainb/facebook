@@ -1,30 +1,28 @@
 class CommentsController < ApplicationController
-	def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
+
+	# POST /posts/1/comments
+  def create
+    @post = Post.find params[:post_id] 
+    @comment = @post.comments.create comment_params 
     @comment.user_id = current_user.id
-    @comment.save
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to post_path(@post) }
-        format.json { render action: 'show', status: :created, location: @post }
         format.js
       else
-        format.html { redirect_to post_path(@post), notice: 'comment not saved, comment was empty...' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js { render :js => "alert(\"comment can't be empty\");"}
       end
     end    
   end
   
+  #DELETE /posts/1/comments/1
   def destroy
-    #@comment = Comment.find(params[:id])
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    post = Post.find params[:post_id]
+    @comment = post.comments.find params[:id] 
     respond_to do |format|
       if @comment.destroy
         format.js
       else
-        render :js => "alert('error deleting comment');"
+        format.js { render :js => "alert('error deleting comment');"}
       end
     end
   end

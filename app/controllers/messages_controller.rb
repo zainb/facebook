@@ -1,34 +1,32 @@
 class MessagesController < ApplicationController
-	def index
-		@user = User.find(current_user)
-		Message.find_each do |message|
-    @messages = message
-    end
+	
+  # GET /messages
+  def index
 	end
 	
-	def show
-		@message = Message.find(current_user)
-	end
-
+  # GET /messages/new
  	def new
     @message = Message.new
   end
 	
+  # POST /messages
 	def create
-   	@message = current_user.messages.create(message_params)
-    user = User.find_by(email: message_params[:to_from])	
-    if !user.nil? && message_params[:body] != ''
-    	@message.to_from = user.id
-    	@message.save 
-    	redirect_to messages_path(@user), notice: 'message sent successfully...'
-    else
-    	redirect_to new_message_path, notice: 'id or message body was invalid, message is not sent...'
+   	@message = current_user.messages.create message_params 
+    user = User.where(email: message_params[:receiver]).first 
+    respond_to do |format|	
+      if !user.nil? && message_params[:body] .present?
+        @message.receiver = user.id
+        @message.save 
+        format.html { redirect_to messages_path(@user) , notice: t(:message_send)}
+      else
+        format.html{ redirect_to new_message_path, notice: t(:message_error)}
+      end
     end 
   end
 	
 	private
   def message_params
-      params.require(:message).permit(:body, :to_from)
+      params.require(:message).permit(:body, :receiver)
   end
 
 end

@@ -3,11 +3,9 @@
 one:
   user_id: 1
   body: MyText
-  sent: false
-  to_from: 1
+  receiver: 1
 
 two:
   user_id: 1
   body: MyText
-  sent: false
-  to_from: 1
+  receiver: 1

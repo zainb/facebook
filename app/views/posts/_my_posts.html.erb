@@ -7,15 +7,7 @@
 
   <tbody>
     <% @my_posts.find_each do |post| %>
-      <tr>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?', :class => 'btn btn-mini' } %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'show post', post_path(post), :class => 'btn btn-mini'%></td>
-      </tr>
+      <%= render partial: 'post', locals: {post: post} %>
     <% end %>
   </tbody>
 </table>
