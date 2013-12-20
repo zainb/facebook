@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js
       else
-        format.js { render :js => "alert(\"comment can't be empty\");"}
+        format.js { render :js => "alert(\"comment cannot be empty\");"}
       end
     end    
   end

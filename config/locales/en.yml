@@ -1,6 +1,5 @@
 en:
-  hello: "Hello world"
-  comment_error: "comment can't be empty"
+  comment_error: "comment cannot be empty"
   message_send: "message sent successfully"
   message_error: "message sending fail, id or message is invalid"
   friend_added: 'Friend is successfully added'
