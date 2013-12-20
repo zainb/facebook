@@ -2,8 +2,8 @@
   <%= comment.user.email %>
   <%= comment.body %>
   <% if comment.user == current_user %>
-	 <%= link_to 'Destroy', post_comment_path(@post, comment, :format => :js),
-              :remote => true,
+	<%= link_to 'Destroy', post_comment_path(@post, comment, :format => :js),
+              remote: true,
               data: { confirm: 'Are you sure?' },
               :method => :delete %>  
   <%end%>
