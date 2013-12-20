@@ -17,13 +17,4 @@
 //= require twitter/bootstrap/collapse
 //= require twitter/bootstrap/carousel
 //= require twitter/bootstrap/affix
-// $(document).ready(function(){
-//   $("#post-button").click(function(){
-//     var text=$("#post-field").val();
-//     if (text==null || text=="")
-//     {
-//       alert("Post body must be filled out");
-//       return false;
-//     }
-//   });
-// });
+// 

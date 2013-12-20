@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <h2>Your Messages</h2>
   <ul>
-    <% current_user.received_messages.each do |message| %>
+    <% @user_received_messages.each do |message| %>
   	 	<li><% sender = message.user_id %>
   	 		<h4><%= User.find(sender).email %></h4>
 		  		<%=  message.body %>

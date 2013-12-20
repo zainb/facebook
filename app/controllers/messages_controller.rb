@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
 	
   # GET /messages
   def index
+    @user_received_messages = current_user.received_messages
 	end
 	
   # GET /messages/new

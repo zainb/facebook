@@ -1,4 +1,3 @@
-<div class="add-comment">
 <%= form_for @post, :html => { :class => 'form-horizontal'}, remote: true do |post_form| %>
   <fieldset>
     <% if @post.errors.any? %>
@@ -11,7 +10,6 @@
         </ul>
       </div>
     <% end %>
- 
     <div class="control-group" >
       <%= post_form.label :body, :class=> "control-label"%><br />
       <div class = "contols">
@@ -24,4 +22,3 @@
     </div>
   </fieldset>
 <% end %>
-</div>
