@@ -8,10 +8,10 @@
     <% @user_received_messages.each do |message| %>
   	 	<li><% sender = message.user_id %>
   	 		<h4><%= User.find(sender).email %></h4>
-		  		<%=  message.body %>
+		  	<%=  message.body %>
   		</li>
     <% end %>
     </br> 
   </ul>
 </table>
-<%= link_to 'send message', new_message_path, :class => "btn btn-mini" %>
+<%= link_to 'send message', new_message_path, class: "btn btn-mini" %>

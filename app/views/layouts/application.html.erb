@@ -33,6 +33,16 @@
   <% if alert %>
     <p class="alert alert-error"><%= alert %></p>
   <% end %>
+  <% if flash[:error] %>
+    <div id = "errorExplanation">
+      <p><%= pluralize(flash[:error].count, "error") %></p>
+        <ul>
+          <% flash[:error].each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
   <div class="container">
     <div class="row">
       <div class="span"><%= yield %></div>

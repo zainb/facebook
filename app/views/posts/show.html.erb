@@ -1,8 +1,8 @@
 <h2>Post</h2>
-<%=@post.body %>
+<%= @post.body %>
 <h2>Comments</h2>
 <div id='com'>
-  <%=render @post.comments%>
+  <%= render @post.comments %>
 </div>
 <h2>Add a comment:</h2>
-<%= render :partial => 'comments/form'%>
+<%= render partial: 'comments/form' %>

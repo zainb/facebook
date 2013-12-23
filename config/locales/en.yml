@@ -1,5 +1,5 @@
 en:
-  comment_error: "comment cannot be empty"
-  message_send: "message sent successfully"
-  message_error: "message sending fail, id or message is invalid"
+  comment_error: "Comment cannot be empty"
+  message_send: "Message sent successfully"
+  message_error: "Message sending failed, email or message is invalid"
   friend_added: 'Friend is successfully added'

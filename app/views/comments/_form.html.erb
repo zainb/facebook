@@ -1,14 +1,13 @@
-<%= form_for([@post, @post.comments.build], :html => { :class => 'form-horizontal'},remote: true) do |f| %>
+<%= form_for([@post, @post.comments.build], :html => { class: 'form-horizontal'}, remote: true) do |f| %>
   <fieldset>
-    <div class="control-group">
-      <%= f.label :comment , :class => "control-label"%><br />
-      <div class="controls">
-        <%= f.text_area :body, :class=> "text-field comment-field" %>
+    <div class = "control-group">
+      <%= f.label :comment , class: "control-label"%><br />
+      <div class = "controls">
+        <%= f.text_area :body, class: "text-field comment-field" %>
       </div>
     </div>
     <div class="form-actions">
-      <%= f.submit nil, :class => "btn btn-primary comment-botton"%>
+      <%= f.submit nil, class: "btn btn-primary comment-botton"%>
     </div>
-
   </fieldset>
 <% end %>

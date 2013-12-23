@@ -1,13 +1,5 @@
-<table class='table table-striped'>
-  <tbody>
-    <tr>
-      <td><%= post.body %></td>
-      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?', :class => 'btn btn-mini' } %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= link_to 'show post', post_path(post), :class => 'btn btn-mini'%></td>
-    </tr>
-  </tbody>
-</table>
+<tr>
+  <td><%= post.body %></td>
+  <td><%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?', class: 'btn btn-mini' } %></td>
+  <td><%= link_to 'show post', post_path(post), class: 'btn btn-mini' %></td>
+</tr>

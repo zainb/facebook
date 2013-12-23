@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       if @post.save
         format.js
       else
-        format.html { render action: 'new' }
+        format.js { render js: "alert('Post could not be created');" }
       end
     end
   end
@@ -29,18 +29,18 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url }
       format.js
     end
   end
   
   private
-    def set_post
-      @post = Post.find params[:id]
-    end
+  def set_post
+    @post = Post.find_by_id params[:id]
+  end
 
-    def post_params
-      params.require(:post).permit(:body)
-    end
+  def post_params
+    params.require(:post).permit(:body)
+  end
+
 end
 
